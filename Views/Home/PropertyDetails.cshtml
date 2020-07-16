@@ -11,7 +11,7 @@
 	<script src="/app.js"></script>
 
 
-
+	<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-right">
 @{
 	int? uid = Context.Session.GetInt32("UserId");
   	bool alreadyLiked = Model.Associations.Any(a => a.UserId == uid);
@@ -23,87 +23,84 @@
 		
     if(alreadyLiked)
 		{
-			<span>One of my Faves!</span><a class="btn btn-sm btn-outline-secondary" href="/property/@Model.PropertyId/like">Un-Like</a>
+			<span>One of my faves </span><a href="/property/@Model.PropertyId/like"><img src="http://www.pngall.com/wp-content/uploads/2016/04/Instagram-Heart-PNG.png" style="height: 30px" alt=""></a>
 		}else{
-		<span>Click to Add to Faves:</span><a class="btn btn-sm btn-outline-secondary" href="/property/@Model.PropertyId/like">Like</a>
+			<span>Make it a fave   </span><a href="/property/@Model.PropertyId/like"><img src="http://cdn.onlinewebfonts.com/svg/download_267302.png" style="height: 30px" alt=""></a>
+		<a href="/property/@Model.PropertyId/like"><h5></h5></a>
 		}
 	}
+</div>
   
-
-<div class="row">
-    <div class="col-10 offset-1">
-		@* <a class="form-group text-right" asp-area="" asp-controller="Home" asp-action="Dashboard">Dashboard</a> *@
-		
-		@* <a class="form-group text-right" asp-area="" asp-controller="Home" asp-action="Logout">Logout</a> *@
+<body style="background-image: url('https://i.pinimg.com/originals/98/d5/4e/98d54e8b54e06de35b73c42e05d00ba6.jpg');  background-repeat: no-repeat;
+    background-attachment: fixed;" ><div class="row">
+    <div class="col-10 offset-1 bg-light" style="padding:30px">
         <h1>@Model.Title</h1>
         <p>@Model.Description </p>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-10 offset-1">
+    <div class="col-10 offset-1 bg-light">
         <h3>Address: @Model.Address</h3>
     </div>
 </div>
 <div class="row">
-    <div class="col-10 offset-1">
+    <div class="col-10 offset-1 bg-light">
         <h3>Number of Bedrooms: @Model.Bedrooms</h3>
     </div>
 </div>
 <div class="row">
-    <div class="col-10 offset-1">
+    <div class="col-10 offset-1 bg-light">
         <h3>Number of Baths: @Model.Baths</h3>
     </div>
 </div>
 <div class="row">
-    <div class="col-10 offset-1">
+    <div class="col-10 offset-1 bg-light">
         <h3>Square Ft: @Model.SqFt.ToString("#,##0") sqft</h3>
     </div>
 </div>
 <div class="row">
-    <div class="col-10 offset-1">
+    <div class="col-10 offset-1 bg-light">
         <h3>Lot size: @Model.LotSize.ToString("#,##0") sqft</h3>
     </div>
 </div>
 <div class="row">
-    <div class="col-10 offset-1">
+    <div class="col-10 offset-1 bg-light">
         <h3>Year Built: @Model.Year</h3>
     </div>
 </div>
 <div class="row">
-    <div class="col-10 offset-1">
+    <div class="col-10 offset-1 bg-light">
         <h3>Listing Type: @Model.ListingType</h3>
     </div>
 </div>
 <div class="row">
-    <div class="col-10 offset-1">
+    <div class="col-10 offset-1 bg-light">
         <h3>Asking Price: @Model.Price.ToString("C", new System.Globalization.CultureInfo("en-US"))</h3>
     </div>
 </div>
 <div class="row">
-    <div class="col-10 offset-1">
+    <div class="col-10 offset-1 bg-light">
         <h3>Date Added: @Model.CreatedAt</h3>
     </div>
 </div>
 <div class="row">
-    <div class="col-10 offset-1">
-        <h3>Owner Info: @Model.Creator.FullName() @Model.Creator.Email </h3>
+    <div class="col-10 offset-1 bg-light">
+        <h3>Contact the Owner: @Model.Creator.FullName() <a href="mailto:@Model.Creator.Email">@Model.Creator.Email </h3></a>
     </div>
 </div>
 <div class="row">
-    <div class="col-10 offset-1">
+    <div class="col-10 offset-1 bg-light">
         @if (uid == Model.Creator.UserId)
         {
-			<p>Hi @Context.Session.GetString("FullName"), Since you are the one who added this property, You can Edit or Delete it if you like by clicking here 
-				<a class="btn btn-sm btn-outline-secondary" style="margin: 10px;" href="@Model.PropertyId/edit">Edit</a>
-				<a class="btn btn-sm btn-outline-secondary" style="margin: 10px;" href="@Model.PropertyId/delete">Remove</a></p>;
+			<p>Hi @Context.Session.GetString("FullName"), Since you are the one who added this property, you can 				<a href="@Model.PropertyId/edit">Edit</a> or <a href="@Model.PropertyId/delete">Remove</a> it.</p>;
 		@* }else{
 			<p>Sign in to see options</p>; *@
 		} 
     </div>
 </div>
 <div class="row">
-    <div class="col-10 offset-1">
+    <div class="col-10 offset-1 bg-light">
         @if (Model.ImgUrl != null)
 		{
             <img style = "width:100%;" src ="@Model.ImgUrl" alt = "Property">
@@ -118,7 +115,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>My Google Map</title>
+  <title>Map</title>
   <style>
     #map{
       height:400px;
@@ -126,7 +123,7 @@
     }
   </style>
 </head>
-<body>
+
   <h4></h4
   >
   <div id="map"></div>

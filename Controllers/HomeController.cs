@@ -45,27 +45,40 @@ namespace CsharpProject.Controllers
 
 
 
- 
+
 		[HttpGet("")]
-		public IActionResult Index()
+		public IActionResult Index(string searchString)
 		{
-			List<Property> AllProperties = dbContext.Properties.ToList();
+			// var searchAddress = dbContext.Properties.Where(x => x.Address.Contains(searchString));
+						List<Property> searchAddress = dbContext.Properties.Where(x => x.Address.Contains(searchString) || searchString == null).ToList();
+
+			
 			return View("Index");
 		}
 
-		[HttpGet]
-		public async Task<IActionResult> Index(string searchString)
-{
-    var properties = from p in dbContext.Properties
-                 select p;
+// 				[HttpGet]
+// 				public async Task<IActionResult> Index(Property property, string searchString)
+// 		{
+// 			// IQueryable<Property> addressQuery = from p in dbContext.Properties
+// 			// 	orderby p.Address;
 
-    if (!String.IsNullOrEmpty(searchString))
-    {
-        properties = movies.Where(s => s.Title.Contains(searchString));
-    }
+// 		    var addresses = from p in dbContext.Properties
+// 		                 select p;
 
-    return View(await movies.ToListAsync());
-}
+// 		    if (!String.IsNullOrEmpty(searchString))
+// 		    {
+// 		        addresses = addresses.Where(s => s.Address.Contains(searchString));
+// 		    }
+
+// 		    return View(await addresses.ToListAsync());
+// 		}
+
+// 		[HttpPost]
+// public string Index(string searchString, bool notUsed)
+// {
+//     return "From [HttpPost]Index: filter on " + searchString;
+// }
+
 
 
 
@@ -198,55 +211,57 @@ namespace CsharpProject.Controllers
 			Property OneSingleProperty = dbContext.Properties
 				  .Include(p => p.Creator)
 				  .Include(p => p.Associations) //added
-					.ThenInclude(a =>a.User)
+					.ThenInclude(a => a.User)
 				  .FirstOrDefault(b => b.PropertyId == propertyId);
 
-            if (OneSingleProperty == null)
-            {
-                return RedirectToAction("Dashboard");
-            }
+			if (OneSingleProperty == null)
+			{
+				return RedirectToAction("Dashboard");
+			}
 			return View("PropertyDetails", OneSingleProperty);
 		}
 
-//POST Like for property
-[HttpGet("property/{propertyId}/like")]
-public IActionResult Like(int propertyId)
-{
-	if (!isLoggedIn)
-	{
-		return RedirectToAction("Dashboard", "Home");
-	}
-	User user = dbContext.Users.FirstOrDefault(u => u.UserId == Convert.ToInt32(HttpContext.Session.GetInt32("UserId")));
-	Property property = dbContext.Properties.FirstOrDefault(w => w.PropertyId == propertyId);
-
-	Association alreadyLiked = dbContext.Associations.FirstOrDefault(a => a.PropertyId == propertyId && a.UserId == uid);
-
-	if (alreadyLiked != null){
-		dbContext.Associations.Remove(alreadyLiked);
-	}else
-	{
-		Association newLike = new Association()
+		//POST Like for property
+		[HttpGet("property/{propertyId}/like")]
+		public IActionResult Like(int propertyId)
 		{
-			UserId = (int)uid,
-			PropertyId = propertyId,
-		};
+			if (!isLoggedIn)
+			{
+				return RedirectToAction("Dashboard", "Home");
+			}
+			User user = dbContext.Users.FirstOrDefault(u => u.UserId == Convert.ToInt32(HttpContext.Session.GetInt32("UserId")));
+			Property property = dbContext.Properties.FirstOrDefault(w => w.PropertyId == propertyId);
 
-		dbContext.Associations.Add(newLike);
-	}
+			Association alreadyLiked = dbContext.Associations.FirstOrDefault(a => a.PropertyId == propertyId && a.UserId == uid);
 
-		Property OneSingleProperty = dbContext.Properties
-				  .Include(p => p.Creator)
-				  .Include(p => p.Associations)
-					.ThenInclude(a =>a.User)
-				  .FirstOrDefault(b => b.PropertyId == propertyId);
+			if (alreadyLiked != null)
+			{
+				dbContext.Associations.Remove(alreadyLiked);
+			}
+			else
+			{
+				Association newLike = new Association()
+				{
+					UserId = (int)uid,
+					PropertyId = propertyId,
+				};
 
-            if (OneSingleProperty == null)
-            {
-                return RedirectToAction("Dashboard");
-            }
-				dbContext.SaveChanges();
+				dbContext.Associations.Add(newLike);
+			}
+
+			Property OneSingleProperty = dbContext.Properties
+					  .Include(p => p.Creator)
+					  .Include(p => p.Associations)
+						.ThenInclude(a => a.User)
+					  .FirstOrDefault(b => b.PropertyId == propertyId);
+
+			if (OneSingleProperty == null)
+			{
+				return RedirectToAction("Dashboard");
+			}
+			dbContext.SaveChanges();
 			return View("PropertyDetails", OneSingleProperty);
-	}
+		}
 
 		//POST Delete One Single Property
 		[HttpGet("property/{propertyId}/delete")]
@@ -298,20 +313,21 @@ public IActionResult Like(int propertyId)
 
 		//Edit post
 		[HttpGet("/property/{propertyId}/edit")]
-		public IActionResult Edit(int propertyId){
+		public IActionResult Edit(int propertyId)
+		{
 
-		if (!isLoggedIn)
-		{
-		return RedirectToAction("Index");
+			if (!isLoggedIn)
+			{
+				return RedirectToAction("Index");
+			}
+			Property selectedProperty = dbContext.Properties.FirstOrDefault(property => property.PropertyId == propertyId);
+			if (selectedProperty == null || selectedProperty.UserId != uid)
+			{
+				return RedirectToAction("Index");
+			}
+			return View("Edit", selectedProperty);
 		}
-		Property selectedProperty = dbContext.Properties.FirstOrDefault(property => property.PropertyId == propertyId);
-		if (selectedProperty == null || selectedProperty.UserId != uid)
-		{
-		return RedirectToAction("Index");
-		}
-		return View("Edit", selectedProperty);
-		}
-		
+
 
 
 		//edit & update post
@@ -320,15 +336,15 @@ public IActionResult Like(int propertyId)
 		{
 			if (ModelState.IsValid == false)
 			{
-					editedProperty.PropertyId = propertyId;
-					return View("Edit", editedProperty);
+				editedProperty.PropertyId = propertyId;
+				return View("Edit", editedProperty);
 			}
 
 			Property selectedProperty = dbContext.Properties.FirstOrDefault(property => property.PropertyId == propertyId);
 
 			if (selectedProperty == null)
 			{
-					return RedirectToAction("Dashboard");
+				return RedirectToAction("Dashboard");
 			}
 
 			selectedProperty.Title = editedProperty.Title;
@@ -339,17 +355,37 @@ public IActionResult Like(int propertyId)
 			selectedProperty.SqFt = editedProperty.SqFt;
 			selectedProperty.LotSize = editedProperty.LotSize;
 			selectedProperty.Year = editedProperty.Year;
+			selectedProperty.ListingType = editedProperty.ListingType;
 			selectedProperty.Price = editedProperty.Price;
 			selectedProperty.ImgUrl = editedProperty.ImgUrl;
 			selectedProperty.UpdatedAt = DateTime.Now;
 
 			dbContext.Properties.Update(selectedProperty);
 			dbContext.SaveChanges();
-			return RedirectToAction("Dashboard", new { propertyId = selectedProperty.PropertyId });
-	}
+			// return RedirectToAction("Dashboard", new { propertyId = selectedProperty.PropertyId });
+
+			Property OneSingleProperty = dbContext.Properties
+					  .Include(p => p.Creator)
+					  .Include(p => p.Associations)
+						.ThenInclude(a => a.User)
+					  .FirstOrDefault(b => b.PropertyId == propertyId);
+
+			if (OneSingleProperty == null)
+			{
+				return RedirectToAction("Dashboard");
+			}
+			dbContext.SaveChanges();
+			return View("PropertyDetails", OneSingleProperty);
+		}
 
 
+[HttpGet("/map")]
+		public IActionResult Map(string searchString)
+		{
 
+			
+			return View("map");
+		}
 
 		///////////// END OF CRUD METHODS FOR Property MODEL /////////////
 

@@ -12155,11 +12155,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/patrickhebert/Desktop/Developer/c#_stack/CsharpProject/CsharpProject.csproj",
+      "projectUniqueName": "/Users/patrickhebert/Desktop/Developer/c#_stack/CSharpProject-master/CsharpProject.csproj",
       "projectName": "CsharpProject",
-      "projectPath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CsharpProject/CsharpProject.csproj",
+      "projectPath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CSharpProject-master/CsharpProject.csproj",
       "packagesPath": "/Users/patrickhebert/.nuget/packages/",
-      "outputPath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CsharpProject/obj/",
+      "outputPath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CSharpProject-master/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

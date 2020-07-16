@@ -1,5 +1,5 @@
 {
-  "FilePath": "/Users/patrickhebert/Downloads/CSharpProject-master/CsharpProject.csproj",
+  "FilePath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CSharpProject-master/CsharpProject.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-2.1",
     "LanguageVersion": "2.1",
@@ -2961,113 +2961,98 @@
   "RootNamespace": "CsharpProject",
   "Documents": [
     {
-      "FilePath": "/Users/patrickhebert/Downloads/CSharpProject-master/Views/_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/patrickhebert/Downloads/CSharpProject-master/Views/Home/Edit.cshtml",
+      "FilePath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CSharpProject-master/Views/Home/Edit.cshtml",
       "TargetPath": "Views\\Home\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/patrickhebert/Downloads/CSharpProject-master/Views/Home/Renter.cshtml",
-      "TargetPath": "Views\\Home\\Renter.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/patrickhebert/Downloads/CSharpProject-master/Views/Home/Dashboard.cshtml",
+      "FilePath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CSharpProject-master/Views/Home/Dashboard.cshtml",
       "TargetPath": "Views\\Home\\Dashboard.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/patrickhebert/Downloads/CSharpProject-master/Views/Home/LogAndReg.cshtml",
-      "TargetPath": "Views\\Home\\LogAndReg.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/patrickhebert/Downloads/CSharpProject-master/Views/Home/RegistrationPartial.cshtml",
-      "TargetPath": "Views\\Home\\RegistrationPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/patrickhebert/Downloads/CSharpProject-master/Views/Shared/_ValidationScriptsPartial.cshtml",
+      "FilePath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CSharpProject-master/Views/Shared/_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/patrickhebert/Downloads/CSharpProject-master/Views/Home/Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/patrickhebert/Downloads/CSharpProject-master/Views/Home/Subscribe.cshtml",
-      "TargetPath": "Views\\Home\\Subscribe.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/patrickhebert/Downloads/CSharpProject-master/Views/Home/About.cshtml",
-      "TargetPath": "Views\\Home\\About.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/patrickhebert/Downloads/CSharpProject-master/Views/Home/Seller.cshtml",
-      "TargetPath": "Views\\Home\\Seller.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/patrickhebert/Downloads/CSharpProject-master/Views/Home/map.cshtml",
-      "TargetPath": "Views\\Home\\map.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/patrickhebert/Downloads/CSharpProject-master/Views/Home/Community.cshtml",
-      "TargetPath": "Views\\Home\\Community.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/patrickhebert/Downloads/CSharpProject-master/Views/Home/LoginPartial.cshtml",
-      "TargetPath": "Views\\Home\\LoginPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/patrickhebert/Downloads/CSharpProject-master/Views/Home/PropertyDetails.cshtml",
-      "TargetPath": "Views\\Home\\PropertyDetails.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/patrickhebert/Downloads/CSharpProject-master/Views/Shared/_CookieConsentPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_CookieConsentPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/patrickhebert/Downloads/CSharpProject-master/Views/Home/CreatePropertyForm.cshtml",
-      "TargetPath": "Views\\Home\\CreatePropertyForm.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/patrickhebert/Downloads/CSharpProject-master/Views/_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/patrickhebert/Downloads/CSharpProject-master/Views/Home/Index.cshtml",
+      "FilePath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CSharpProject-master/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/patrickhebert/Downloads/CSharpProject-master/Views/Home/Buyer.cshtml",
-      "TargetPath": "Views\\Home\\Buyer.cshtml",
+      "FilePath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CSharpProject-master/Views/Home/About.cshtml",
+      "TargetPath": "Views\\Home\\About.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/patrickhebert/Downloads/CSharpProject-master/Views/Shared/Error.cshtml",
+      "FilePath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CSharpProject-master/Views/Home/LogAndReg.cshtml",
+      "TargetPath": "Views\\Home\\LogAndReg.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CSharpProject-master/Views/Home/Community.cshtml",
+      "TargetPath": "Views\\Home\\Community.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CSharpProject-master/Views/Home/PropertyDetails.cshtml",
+      "TargetPath": "Views\\Home\\PropertyDetails.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CSharpProject-master/Views/Home/Subscribe.cshtml",
+      "TargetPath": "Views\\Home\\Subscribe.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CSharpProject-master/Views/Home/CreatePropertyForm.cshtml",
+      "TargetPath": "Views\\Home\\CreatePropertyForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CSharpProject-master/Views/Shared/Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/patrickhebert/Downloads/CSharpProject-master/Views/Shared/_Layout.cshtml",
+      "FilePath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CSharpProject-master/Views/Home/Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CSharpProject-master/Views/Home/LoginPartial.cshtml",
+      "TargetPath": "Views\\Home\\LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CSharpProject-master/Views/Home/map.cshtml",
+      "TargetPath": "Views\\Home\\map.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CSharpProject-master/Views/Shared/_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CSharpProject-master/Views/_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CSharpProject-master/Views/Shared/_CookieConsentPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_CookieConsentPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CSharpProject-master/Views/Home/RegistrationPartial.cshtml",
+      "TargetPath": "Views\\Home\\RegistrationPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/patrickhebert/Desktop/Developer/c#_stack/CSharpProject-master/Views/_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     }
   ],

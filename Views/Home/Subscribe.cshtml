@@ -1,4 +1,14 @@
 @{
     ViewData["Title"] = "Subscribe";
 }
-        <h1>You have successfully subscribed to our newsletter!</h1>
+<body style="background-image: url('https://i.pinimg.com/originals/98/d5/4e/98d54e8b54e06de35b73c42e05d00ba6.jpg');  background-repeat: no-repeat;
+    background-attachment: fixed;" >
+	<div class="col-12 text-center row" style="padding:20px">
+@{
+	int? uid = Context.Session.GetInt32("UserId");
+}
+	        <h1>Hi  @Context.Session.GetString("FullName")! You have successfully subscribed to our newsletter!</h1>
+			<h2>The email address we have for you is  @Context.Session.GetString("Email")</h2>
+			<h4>(Not really. Functionality still in the works!)</h4>
+	</div>
+</body>

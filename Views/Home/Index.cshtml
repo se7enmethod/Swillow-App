@@ -3,19 +3,39 @@
 }
 
 @model List<Property>
+@* @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+{
+  @Html.TextBox("searchString") <input type="submit" value="search"/>
+} *@
 
-  @* Hero Test1*@
-  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+@* <p>
+@if (Model.Count() == 0)
+{
+  <p>No Match</p>
+}
+else
+{
+  foreach(var item in Model)
+  {
+    <p> @item.Title</p>
+    <p> @item.Address</p>
+    <p> @item.ListingType</p>
+  }
+} *@
+
+<body style="background-image: url('https://i.pinimg.com/originals/98/d5/4e/98d54e8b54e06de35b73c42e05d00ba6.jpg');  background-repeat: no-repeat;
+    background-attachment: fixed;" >  
+	<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
   <div class="col-md-10 p-lg-5 mx-auto my-5">
     <h1 class="display-4 font-weight-normal">Welcome To Swillow</h1>
-    <p class="lead font-weight-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ad vitae expedita voluptas officia labore voluptatum</p>
+    <p class="lead font-weight-normal">We are so glad you are here! Click below to view our current list of properties for sale. Sign in to add your own or to save to favorites. </p>
 <div class="col-md-10 p-lg-5 mx-auto my-2">
-    <form asp-controller = "Home" asp-action="Index" class="form-inline mt-2 mt-md-0">
+    @* <form asp-controller = "Home" asp-action="Index" class="form-inline mt-2 mt-md-0 method="get">
         <input class="form-control mr-sm-2" name ="SearchString" type="text" placeholder="City, Zipcode" aria-label="Search">
         <button class="btn btn-outline-secondary" type="submit">Search</button>
-        @* I need to be watching Neil's forum demo. I think it had  search features *@
-        <a asp-action="Dashboard" class="btn btn-secondary my-2" style="margin-left:10px">View All Properties</a>
-    </form>
+        @* I need to be watching Neil's forum demo. I think it had  search features 
+    </form> *@
+        <a asp-action="Dashboard" class="btn btn-primary my-2" style="margin-left:10px">View All Properties</a>
 </div>
     
     
@@ -23,5 +43,5 @@
   <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
 </div>
 
-
+</body>
 
