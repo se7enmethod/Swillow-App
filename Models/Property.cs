@@ -8,15 +8,15 @@ namespace CsharpProject.Models {
     public class Property {
         [Key]
         public int PropertyId { get; set; }
+        
+		[Required]
+        [MinLength (5, ErrorMessage = "must be at least 5 characters")]
+        [Display (Name = "Title")]
+        public string Title { get; set; }
 
         [Required]
         [Display (Name = "Listing Type")]
         public String ListingType { get; set; }
-
-        [Required]
-        [MinLength (5, ErrorMessage = "must be at least 5 characters")]
-        [Display (Name = "Title")]
-        public string Title { get; set; }
 
         [Required]
         [MinLength (5, ErrorMessage = "must be at least 5 characters")]
@@ -34,7 +34,7 @@ namespace CsharpProject.Models {
 
         [Required]
         [Display (Name = "Baths")]
-        public int Baths { get; set; }
+        public double Baths { get; set; }
 
         [Required]
         [Display (Name = "Square Feet")]
@@ -45,14 +45,14 @@ namespace CsharpProject.Models {
         public int LotSize { get; set; }
 
         [Required]
-        [Range (1500, 2020, ErrorMessage = "Year Built Must be in the Past.")]
+        [Range (0, 2020, ErrorMessage = "Year Built Must be in the Past.")]
 
         [Display (Name = "Year Built")]
         public int Year { get; set; }
 
         [Required]
         [Display (Name = "Price")]
-        public int Price { get; set; }
+        public double Price { get; set; }
 
         // [Required]
         // [Display (Name = "Photos")]

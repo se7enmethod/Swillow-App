@@ -50,37 +50,11 @@ namespace CsharpProject.Controllers
 		public IActionResult Index(string searchString)
 		{
 			// var searchAddress = dbContext.Properties.Where(x => x.Address.Contains(searchString));
-						List<Property> searchAddress = dbContext.Properties.Where(x => x.Address.Contains(searchString) || searchString == null).ToList();
+			List<Property> searchAddress = dbContext.Properties.Where(x => x.Address.Contains(searchString) || searchString == null).ToList();
 
 			
 			return View("Index");
 		}
-
-// 				[HttpGet]
-// 				public async Task<IActionResult> Index(Property property, string searchString)
-// 		{
-// 			// IQueryable<Property> addressQuery = from p in dbContext.Properties
-// 			// 	orderby p.Address;
-
-// 		    var addresses = from p in dbContext.Properties
-// 		                 select p;
-
-// 		    if (!String.IsNullOrEmpty(searchString))
-// 		    {
-// 		        addresses = addresses.Where(s => s.Address.Contains(searchString));
-// 		    }
-
-// 		    return View(await addresses.ToListAsync());
-// 		}
-
-// 		[HttpPost]
-// public string Index(string searchString, bool notUsed)
-// {
-//     return "From [HttpPost]Index: filter on " + searchString;
-// }
-
-
-
 
 		[HttpGet("/logandreg")]
 		public IActionResult LogAndReg()
@@ -160,7 +134,7 @@ namespace CsharpProject.Controllers
 			// display errors
 			else
 			{
-				return View("Index");
+				return View("/");
 			}
 		}
 
@@ -168,7 +142,7 @@ namespace CsharpProject.Controllers
 		public IActionResult Logout()
 		{
 			HttpContext.Session.Clear();
-			return RedirectToAction("Dashboard");
+			return RedirectToAction("Index");
 		}
 
 		[HttpGet("/subscribe")]

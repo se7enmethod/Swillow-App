@@ -6,13 +6,12 @@
 
 @model List<Property>
 
-<body style="background-image: url('https://i.pinimg.com/originals/98/d5/4e/98d54e8b54e06de35b73c42e05d00ba6.jpg');  background-repeat: no-repeat;
+<body style="background-image: url('http://3.bp.blogspot.com/_uGCoghnCSws/TMEy4m6JGZI/AAAAAAAAABQ/NXHhWkzq2Nk/s1600/Luxury+house+(3).jpg');  background-size: cover; background-repeat: no-repeat;
     background-attachment: fixed;">
 <div class="row">
     <div class="col-8">
 			<h1>Here's a list of what we got!</h1>
 			<h3>Click on the Property Title to see more</h3>
-			@* <h4>To add a Property, Click</h4> *@
 @{
 	int? uid = Context.Session.GetInt32("UserId");
 }
@@ -34,146 +33,21 @@
             string like = $"/property/{property.PropertyId}/like";
 			string unlike = $"/property/{property.PropertyId}/unlike";
             string delete = $"property/{property.PropertyId}/delete";
-    <div class="col-md-6">
-      <div class="bg-light row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-inline-block" style="height:300px; margin-bottom: 10px">
-        <div class="col p-4 d-flex flex-column position-static">
-        	<strong class="d-inline-block mb-2 text-primary">@property.ListingType</strong>
-			<h3 class="mb-0">@property.Title</h3>
-			<div class="mb-1 text-muted">@property.CreatedAt</div>
-			<p class="card-text mb-auto">For @property.ListingType @property.Price.ToString("C", new System.Globalization.CultureInfo("en-US"))</p>
-			<p class="card-text mb-auto">@property.Bedrooms bedrooms @property.Baths baths</p>
-            <p class="card-text mb-auto" style="width:250px; white-space: nowrap; overflow: hidden; text-overflow:ellipsis;">For @property.Description</p>
-			<a href="@url" class="stretched-link">Continue reading</a>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          @* <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"> *@
-        <img src="@property.ImgUrl" style="width:200px; height:300px; object-fit:cover"/>
-          @* </svg> *@
-        </div>
-      </div>
-    </div>
-@* </div> *@
-
+		<div class="col-md-6">
+		<div class="bg-light row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-inline-block" style="height:300px; margin-bottom: 10px">
+			<div class="col p-4 d-flex flex-column position-static">
+				<strong class="d-inline-block mb-2 text-primary">@property.ListingType</strong>
+				<h3 class="mb-0">@property.Title</h3>
+				<div class="mb-1 text-muted">@property.CreatedAt</div>
+				<p class="card-text mb-auto">For @property.ListingType @property.Price.ToString("C", new System.Globalization.CultureInfo("en-US"))</p>
+				<p class="card-text mb-auto">@property.Bedrooms bedrooms @property.Baths baths</p>
+				<p class="card-text mb-auto" style="width:250px; white-space: nowrap; overflow: hidden; text-overflow:ellipsis;">For @property.Description</p>
+				<a href="@url" class="stretched-link">Continue reading</a>
+			</div>
+			<div class="col-auto d-none d-lg-block">
+			<img src="@property.ImgUrl" style="width:200px; height:300px; object-fit:cover"/>
+			</div>
+		</div>
+		</div>
 		}
-
-@* test *@
-
-
-</div>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>My Google Map</title>
-  <style>
-    #map{
-      height:400px;
-      width:100%;
-    }
-  </style>
-</head>
-  <div id="map"></div>
-  <script>
-    function initMap(){
-      // Map options
-      var options = {
-        zoom:9,
-        center:{lat:33.6846,lng:-117.8265}
-      }
-
-      // New map
-      var map = new google.maps.Map(document.getElementById('map'), options);
-
-      // Listen for click on map
-      google.maps.event.addListener(map, 'click', function(event){
-        // Add marker
-        addMarker({coords:event.latLng});
-      });
-
-      /*
-      // Add marker
-      var marker = new google.maps.Marker({
-        position:{lat:42.4668,lng:-70.9495},
-        map:map,
-        icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-      });
-
-      var infoWindow = new google.maps.InfoWindow({
-        content:'<h1>Lynn MA</h1>'
-      });
-
-      marker.addListener('click', function(){
-        infoWindow.open(map, marker);
-      });
-      */
-
-      // Array of markers
-      var markers = [
-        {
-          coords:{lat:33.5529879,lng:-117.8139701},
-		  content:'<h5>Perfect Southern California Home on the Beach</h5>'
-        },
-        {
-          coords:{lat:33.9061979,lng:-117.813535},
-		  content:'<h5>Glowing in the warmth of its Spanish exterior</h5>'
-        },
-        {
-          coords:{lat:33.5583113,lng:-117.6785931},
-		  content:'<h5>My Apartment</h5>'
-        },
-        {
-          coords:{lat:33.5295751,lng:-117.7730467},
-		  content:'<h5>Gorgeous Laguna Beach Property</h5>'
-        }
-      ];
-
-      // Loop through markers
-      for(var i = 0;i < markers.length;i++){
-        // Add marker
-        addMarker(markers[i]);
-      }
-
-      // Add Marker Function
-      function addMarker(props){
-        var marker = new google.maps.Marker({
-          position:props.coords,
-          map:map,
-          //icon:props.iconImage
-        });
-
-        // Check for customicon
-        if(props.iconImage){
-          // Set icon image
-          marker.setIcon(props.iconImage);
-        }
-
-        // Check content
-        if(props.content){
-          var infoWindow = new google.maps.InfoWindow({
-            content:props.content
-          });
-
-          marker.addListener('click', function(){
-            infoWindow.open(map, marker);
-          });
-        }
-      }
-    }
-  </script>
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPGZ1a7Xc0EHhB-Q6CpEdFSzVKNhxlf14&callback=initMap">
-    </script>
-
-
-
-
-
-</html>
 </body>
-
-
-
-
-

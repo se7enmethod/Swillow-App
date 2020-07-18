@@ -6,7 +6,9 @@ a.navbar-brand {
   text-align: center;
   word-break: break-all;
 }
-
+.error-message{
+	color: red;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
